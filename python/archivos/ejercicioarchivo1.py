@@ -1,0 +1,5 @@
+sol = input('ingrese un archivo de texto: ')
+arch = open(sol)
+larch = arch.read()
+larch = larch.upper()
+print(larch)

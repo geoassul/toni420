@@ -1,0 +1,54 @@
+{
+   "results" : [
+      {
+         "address_components" : [
+            {
+               "long_name" : "Lima",
+               "short_name" : "Lima",
+               "types" : [ "colloquial_area", "locality", "political" ]
+            },
+            {
+               "long_name" : "Callao Region",
+               "short_name" : "Callao Region",
+               "types" : [ "administrative_area_level_1", "political" ]
+            },
+            {
+               "long_name" : "Peru",
+               "short_name" : "PE",
+               "types" : [ "country", "political" ]
+            }
+         ],
+         "formatted_address" : "Lima, Peru",
+         "geometry" : {
+            "bounds" : {
+               "northeast" : {
+                  "lat" : -11.7999875,
+                  "lng" : -76.78833970000001
+               },
+               "southwest" : {
+                  "lat" : -12.2532891,
+                  "lng" : -77.18721859999999
+               }
+            },
+            "location" : {
+               "lat" : -12.0463731,
+               "lng" : -77.042754
+            },
+            "location_type" : "APPROXIMATE",
+            "viewport" : {
+               "northeast" : {
+                  "lat" : -11.7999875,
+                  "lng" : -76.78833970000001
+               },
+               "southwest" : {
+                  "lat" : -12.2532891,
+                  "lng" : -77.18721859999999
+               }
+            }
+         },
+         "place_id" : "ChIJxz7uGfbFBZERSi5FzLlsIBQ",
+         "types" : [ "colloquial_area", "locality", "political" ]
+      }
+   ],
+   "status" : "OK"
+}
