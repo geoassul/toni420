@@ -1,0 +1,270 @@
+body {
+    font-family: 'Montserrat', sans-serif; /* revisa de nuevo*/
+}
+
+header {
+    background: #BBBBBB; /* cambia el color del fondo */
+    padding: 20px 0; /*agrega un espacio de 20px en el top y al costado 0px*/
+}
+
+.caja {
+    position: relative; /* le da una posicion relativa, es decir modifica desde el punto de origen*/
+    width: 940px; /* usa el ancho de la pantalla */
+    margin: 0 auto; /*centraliza, el top va en 0 y el costado en auto(calcula automaticamente)*/
+}
+
+nav {
+    position: absolute; /*modifica el punto de origen y usa top right button left*/
+    top: 110px; /* modifica la parte superior */
+    right: 0; /* modifica la parte derecha del navegador*/
+}
+
+nav li {
+    display: inline; /* modifica como se configura la ubcacion dentro del navegador*/
+    margin: 0 0 0 15px; /* modifica la parte del margen*/
+}
+
+
+nav a {
+    text-transform: uppercase; /*pone el texto en mayusculas*/
+    color: #000000;
+    font-weight: bold; /* grosor de la letras*/
+    font-size: 22px; /* tamaño de las letras */
+    text-decoration: none; /*quita las decoraciones por defecto que puedan tener las etiquetas*/
+}
+
+nav a:hover {
+    color: #C78C19;
+    text-decoration: underline; /*coloca subrayado a un texto*/
+}
+
+.productos {
+    width: 940px;
+    margin: 0 auto;
+    padding: 50px; /* modifica el espacio interno del elemento*/
+}
+
+.productos li {
+    display: inline-block; /*el espacio ocupado sera el del tamaño del elemento*/
+    text-align: center; /*  alinea el texto en el centro */
+    width: 30%; /* toma el ancho de la pantalla*/
+    vertical-align: top; /*modifica el texto en la parte superior */
+    margin: 0 1.5%; /* modifica el espacio externo*/
+    padding: 30px 20px; /* modifica el espacio interno*/
+    box-sizing: border-box; /*configura el espacio del elemento*/
+    border: 2px solid #000000; /* altera el borde del elemento(orden: width, style, color)*/
+	border-radius: 10px; /*radio del borde*/
+}
+
+.productos li:hover {
+    border-color: #C78C19;
+}
+
+.productos li:active { /* captura cuando hace click el mouse*/
+    border-color: #088C19;    
+}
+
+.productos h2 {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.productos li:hover h2 { /* hover es para capturar cuando el mouse pase por encima de una etiqueta*/
+    font-size: 33px;
+}
+
+.producto-descripcion {
+    font-size: 18px;
+}
+
+.producto-precio {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+footer {
+    text-align: center;
+    background: url(imagenes/bg.jpg); /*de esta manera agregamos imagenes en CSS*/
+    padding: 40px;
+}
+
+.copyright { /* el punto indica que es una clase*/
+    color: #FFFFFF;
+    font-size: 13px;
+    margin: 20px;
+}
+
+
+form {
+    margin: 40px 0;
+}
+
+form label, form legend { /* una manera de agregar estilos para muchos elementos sin estar copiando codigo*/
+    display:block; /*por defecto el display en block es "in line". */
+    font-size: 20px;
+    margin: 0 0 10px;
+}
+
+.input-padron{
+    display: block;
+    margin: 0 0 20px;
+    padding: 10px 25px;
+    width: 50%;
+}
+.checkbox {
+    margin: 20px 0;
+}
+.enviar{
+    width: 40%;
+    padding: 15px 0;
+    font-size: 18px;
+    font-weight: bold;
+    color:white;
+    background: orange;
+    border:none;
+    border-radius: 5px;
+    transition: 1s all;
+    cursor:pointer;
+}
+.enviar:hover {
+    background: darkorange;
+    transform: scale(1.2); /* hace un transformacion geometrica*/
+}
+
+table {
+    margin: 40px 40px;
+}
+
+thead {
+    background: #555555;
+    color: white;
+    font-weight: bold;
+}
+
+td, th {
+    border: 1px solid #000000;
+    padding: 8px 15px;
+}
+
+/*Aquí inicia el CSS para nuestra home*/
+
+.banner{
+    width: 100%;
+}
+
+
+.titulo-principal{
+    text-align: center;
+    font-size: 2em;
+    margin: 0 0 1em;
+    clear:left;
+}
+
+
+.principal p{
+    margin: 0 0 1em;
+}
+
+
+.principal strong{
+    font-weight: bold;
+}
+
+
+.principal em{
+    font-style: italic;
+}
+
+
+.utensilios{
+    width: 120px;
+    float:left;
+    margin: 0 20px 20px 0;
+}
+
+
+.imagenDiferenciales{
+    width: 60%;
+}
+
+.mapa {
+    padding: 3em 0;
+    background: linear-gradient(#FEFEFE, #888888);
+}
+.mapa p {
+    margin: 0 0 2em;
+    text-align: center;
+}
+
+.mapa-contenido {
+    width: 940px;
+    margin: 0 auto;
+}
+
+.principal {
+    padding: 3em 0;
+    background: #FEFEFE;
+    width: 940px;
+    margin: 0 auto;
+}
+
+.video {
+    width: 560px;
+    margin: 1em auto;
+}
+
+.diferenciales {
+    padding: 3em 0;
+    background: #888888;
+}
+
+.contenido-diferenciales {
+    width: 640px;
+    margin: 0 auto;
+    display : flex;
+}
+
+.lista-diferenciales {
+    width: 40%;
+    display: inline-block;
+    vertical-align: top;
+    padding : 0 20px;
+}
+
+.items {
+    line-height: 1.5;
+}
+
+.items:first-child { /* pseudo elemento que se refiere al primer hijo*/
+    font-weight: bold;
+}
+
+.imagen-diferenciales{
+    width: 60%; 
+    transition: 400ms; /* cuando ocurra un cambio con este elemento pasaran 400ms hasta que ocurra*/
+    box-shadow: 10px 10px 30px 15px #000000; /*  agrega sombras*/
+}
+
+.imagen-diferenciales:hover{ /* usa un pseudo elemento para cuando el mouse pase por encima se active este codigo*/
+    opacity: 0.3; /* agrega el efecto de opacidad*/
+}
+
+.items:before{ /* usa un pseudo elemento para agregar un caracter antes del elemento */
+    content:"★" /* agrega contenido, por lo general, texto*/
+}
+
+@media screen and (max-width:480px){
+    h1{
+        text-align: center;
+    }
+    nav{
+        position: static;
+    }
+    .caja, .principal, .mapa-contenido, .contenido-diferenciales, .video {
+        width: auto;
+    }
+    .lista-diferenciales, .imagen-diferenciales{
+        width: 100%;
+    }
+}
