@@ -1,0 +1,31 @@
+;operaciones con puertos
+
+#include "p18f4550.inc"
+#include "config.inc"
+
+;access ram 
+
+dato	equ		0x21
+
+;Vectores de programa
+
+	org		0x0000
+	goto 	SETUP
+	org		0x0020
+	
+SETUP:
+	movlw	0x062
+	movwf	OSCCON
+	movlw	0x0f
+	movwf	ADCON1
+	clrf	TRISD
+	setf	TRISB
+	
+LOOP:
+	movf	PORTB,W
+	movwf	dato
+	comf	dato,W
+	movwf	LATD
+	goto	LOOP
+	
+	end

@@ -1,0 +1,27 @@
+;programa que recibe un dato de 4 bit por un puerto y en la salida muestra el resultado con dos unidades mas.
+#include "p18f4550.inc"
+#include "config.inc"
+
+	org 	0x0000
+	goto	SETUP
+	org		0x0020
+	
+SETUP:
+	movlw	0x62
+	movwf	OSCCON
+	movlw	0x0f
+	movwf	ADCON1
+	movlw	0x0f
+	movwf	TRISB
+	clrf	TRISD
+	clrf	LATD
+	
+LOOP:
+
+	movf	PORTB,W
+	addlw	.2
+	movwf	LATD
+	end
+	
+	
+	

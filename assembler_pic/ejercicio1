@@ -1,0 +1,22 @@
+#INCLUDE "pic18f4550.inc"
+#include "config.inc"
+
+org 0x0000
+goto SETUP
+org 0x0020
+
+SETUP:
+	movlw 0x62
+	movwf OSCCON
+	movlw 0x0f
+	movwf ADCON1
+	clrf TRISA
+	setf TRISD
+	clrf LATD
+
+LOOP:
+
+	movf PORTA,W ;la entrada del puerto A, el valor se le asignara a W(acumulador)
+	addlw 0x02
+	movwf LATD;el valor  de W se le asigna al puerto D
+	goto LOOP

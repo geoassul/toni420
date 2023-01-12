@@ -1,0 +1,130 @@
+#include "p18f4550.inc"
+#include "config.inc"
+
+	cblock 0x10
+		cuenta
+	endc
+
+	org	0x0000
+	goto 	SETUP
+	org 	0x0008
+	goto 	interrupcion
+	org 	0x0018
+	retfie
+	org 	0x0020
+
+SETUP:
+
+	clrf	cuenta 		;"CUENTA = 0" limpiamos en dato de 8 bits
+	movlw 0x0f
+	movwf	ADCON1		;todos los pines como digitales
+	clrf	TRISD		;el puerto D como salidas
+	bcf	INTCON2,RBPU 	;habilita el pull-up internos del puerto B
+	
+	; linea para el bug del RBIF(flag de interrupcion) en el pic18fxx
+	
+	movf	PORTB,W		;cargamos el valor del puerto B en W
+	nop
+	; ---------------
+
+	bcf	INTCON,RBIF		;limpiamos bandera
+	bsf	INTCON,RBIE		;habilitamos pin INT0 
+	bsf	INTCON,GIE		;habilitamos todos los pines de interrupcion
+	
+LOOP:
+
+mientras:
+	movlw	.10			;movemos el valor de 10 a "
+	cpfslt	cuenta
+	goto	fin_mientras
+
+hacer:
+	movf	cuenta,W
+	call	deco7seg
+	movwf	LATD
+	call	retardo_1s
+	incf	cuenta
+	goto 	mientras
+
+fin_mientras:
+	clrf	cuenta
+	goto	LOOP	
+
+;definicion de subrutinas
+
+interrupcion:
+	btfss	INTCON,RBIF		;¿RBIF = 0?
+	reftie
+	goto	pinchange_ISR
+
+pinchange_ISR:
+	cblock
+		KBIx				;variable
+		KBI
+		pinB
+		i
+	endc
+
+	clrf	pinB
+	clrf	i
+	bsf		i,0
+	movf	PORTB,W
+	andlw	0xF0
+	xorlw	0xf0
+	movwf	KBIx
+	movlw	0x04
+	call	KBIx_read
+	movff	KBIx,KBI
+
+mientras1:
+	movf	i,W
+	movff	KBIx,KBIx
+	call	KBIx_read
+	movlw	0x00
+	cpfseq	KBIx
+	goto	hacer
+	goto	fin_mientras1
+
+hacer1:
+	incf	pinB
+	incf	i
+	goto	mientras1
+
+fin_mientras1:
+	movlw	0x00
+	cpfseq	KBI
+	goto	muestra
+	goto	fin_pinChange_ISR
+
+muestra:
+	movf	pinB,W
+	call	deco7seg
+	movwf	LATD
+
+fin_pinChange_ISR:
+	call	retardo_1s
+	bcf		INTCON,RBIF
+	retfie
+
+KBIx_read:
+	cblock
+		n
+	endc
+	movwf	n	
+	movlw	0x00
+	cpfseq	n
+	goto	12
+	return
+12:
+	rrncf	KBIx,F
+	bcf		KBIx,7
+	decfsz	n,F
+	goto	12
+	return
+
+;librerias auxuliares
+
+#include "retardos.inc"
+#include "display7seg.inc"
+
+	end

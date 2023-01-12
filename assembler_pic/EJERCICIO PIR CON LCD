@@ -1,0 +1,68 @@
+#include "p18f4550.inc"
+#include "config.inc"
+
+cblock 0x10
+	CONTADOR_UNI
+	S_PIR
+endc
+
+	org		0x0000
+	goto	SETUP
+	org 	0x0020
+	
+SETUP:
+	movlw	0x62
+	movwf	OSCCON
+	MOVLW	0X0F
+	MOVWF	ADCON1
+	call	lcd_begin
+	movlw	.0
+	call	lcd_fila0
+	movlw	.0
+	call	lcd_print
+	movlw	.7
+	call	lcd_fila1
+	CLRF	S_PIR
+	MOVF	S_PIR,W
+	CLRF	CONTADOR
+	call	lcd_print
+	
+LOOP:
+	BTFSS 	PORTA,0
+	GOTO 	LOOP
+	INCF	contador
+	ADDWF	0X30,contador
+	CLRF	S_PIR
+	MOVFW	S_PIR
+	CALL	lcd_print
+	CPFSEQ	S_PIR,W
+	GOTO	VERIFICAR
+	GOTO	CERO
+	
+VERIFICAR:
+	BTFSS	PORTA,0
+	GOTO	LOOP
+	GOTO	VERIFICAR
+	
+CERO:
+CLRF	S_PIR
+MOVF	S_PIR,W
+CALL	LCD_PRINT
+GOTO	VERIFICAR
+	
+	
+	
+
+mensajes: 
+	data 	"contador PIR " ;0 - 13
+	DB 		contador ; 14 
+	
+#include "retardos.inc"
+
+	END
+	
+	
+	
+	
+	
+	

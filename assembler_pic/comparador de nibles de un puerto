@@ -1,0 +1,58 @@
+;COMPARADOR DE PUERTOS
+
+#include "p18f4550.inc"
+#include "config.inc"
+
+;access ram para variables
+
+numA	EQU		0x10
+numB	EQU		0x11
+
+;vectores de programa
+	
+	org		0x0000
+	goto	SETUP
+	org		0x0020
+	
+SETUP:
+	movlw	0x62
+	movwf	OSCCON
+	movlw	0x0f
+	movwf	ADCON1
+	setf	TRISB
+	clrf	TRISD
+	clrf	LATD
+
+LOOP:
+	movf	PORTB,W
+	movwf	numA
+	movwf	0x0f
+	andwf	numB,f
+	swapf	numB,f
+	movf	numA,W
+	subwf	numb,W
+	btfsc	STATUS,Z
+	goto	AIGUALB
+	btfss	STATUS,C
+	goto	AMAYOR
+	GOTO	BMAYOR
+	
+AIGUALB:
+	bcf		LATD,0
+	bsf		LATD,1
+	bcf		LATD,2
+	goto	LOOP
+	
+BMAYOR:
+	bcf		LATD,0
+	bcf		LATD,1
+	bsf		LATD,2
+	goto	LOOP
+	
+AMAYOR:
+	bsf		LATD,0
+	bcf		LATD,1
+	bcf		LATD,2
+	goto	LOOP
+	
+	end

@@ -1,0 +1,49 @@
+;parpadeo de LED
+#include "p18f4550.inc"
+#include "config.inc"
+
+;Access RAM para variables
+
+	cblock 0x10
+		var1
+		var2
+		var3
+	endc
+
+;vectores de programa
+	org	0x0000
+	goto SETUP
+	org 0x0020
+	
+;programa principal
+SETUP:
+	clrf	LATD
+	bcf		TRISD,0
+	bsf		LATD,0
+LOOP:
+	bcf		LATD,0
+	call	RETARDO
+	bsf		LATD,0
+	call	RETARDO
+	goto	LOOP
+	
+;subrutinas
+RETARDO:
+	movlw	.3
+	movwf	var3
+RET1:
+	movlw	0.100
+	movwf	var2
+RET2:
+	movlw	.220
+	movwf	var1
+RET3:
+	decfsz	var1,f
+	goto 	RET3
+	decfsz	var2,f
+	goto	RET2
+	decfsz	var3,f
+	goto	RET1
+	return
+	
+	end

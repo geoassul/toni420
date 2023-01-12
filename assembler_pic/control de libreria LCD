@@ -1,0 +1,31 @@
+#include "p18f4550.inc"
+#include "config.inc"
+
+	org		0x0000
+	goto	SETUP
+	org 	0x0020
+	
+SETUP:
+	movlw	0x62
+	movwf	OSCCON
+	MOVLW	0X0F
+	MOVWF	ADCON1
+	CALL	lcd_begin
+	movlw	.2
+	CALL	lcd_fila0
+	movlw	.0
+	call	lcd_print
+	movlw	.3
+	call	lcd_fila1
+	movlw	.14
+	call	lcd_print
+	
+LOOP:
+	GOTO	LOOP
+	
+mensajes:
+	data	"libreria LCD "
+	data	"pic en ASM "
+	
+#include "pantallaLCD.inc"
+#include "retardos.inc"

@@ -1,0 +1,133 @@
+;subrutinas de tiempo
+
+;************variables en memoria
+
+cblock
+	r_contA
+	r_contB
+	r_contC
+endc
+
+retardo_10micros
+	nop
+	nop
+	nop
+	nop
+	nop
+retardo_5micros
+	nop
+retardo_4micros
+	return
+	
+;*************RETARDOS DE 20 A 500 MICROSEGUNDOS
+
+retardo_500micros
+	nop
+	movlw	.164
+	goto	retardomicros
+retardo_200micros
+	nop
+	movlw	.64
+	goto	retardomicros
+retardo_100micros
+	nop
+	movlw	.31
+	.031
+	goto	retardomicros
+retardo_50micros
+	nop
+	movlw	.14
+	goto	retardomicros
+retardo_20micros
+	movlw	.5
+	
+;*******
+
+retardomicros
+	movwf	r_contA
+retardo_loop
+	decfsz	r_contA,1
+	goto	retardo_loop
+	return
+
+;*************RETARDOS DE 1 A 200MILISEGUNDOS
+
+retardo_200ms
+	movlw	.200
+	goto	retardo_ms
+retardo_100ms
+	movlw	.100
+	goto	retardo_ms
+retardo_50ms
+	movlw	.50
+	goto	retardo_ms
+retardo_20ms
+	movlw	.20
+	goto	retardo_ms
+retardo_10ms
+	movlw	.10
+	goto	retardo_ms
+retardo_5ms
+	movlw	.5
+	goto	retardo_ms
+retardo_2ms
+	movlw	.2
+	goto	retardo_ms
+retardo_1ms
+	movlw	.1
+
+;***********************
+
+retardo_ms
+	movwf	r_contB
+retardo_loop1
+	movlw	.249
+	movwf	r_contA
+retardo_loop2
+	nop
+	decfsz	r_contA,1
+	goto	retardo_loop2
+	decfsz	r_contB,1
+	goto	retardo_loop1
+	return
+	
+;***********+RETARDOS DE 0.5 A 20 SEG
+
+retardo_20s
+	movlw	.200
+	goto	retardo_decima
+retardo_10s
+	movlw	.100
+	goto	retardo_decima
+retardo_5s
+	movlw	.50
+	goto	retardo_decima
+retardo_2s
+	movlw	.20
+	goto	retardo_decima
+retardo_1s
+	movlw	.10
+	goto	retardo_decima
+retardo_500ms
+	movlw	.5
+	
+;
+	
+retardo_decima
+	movwf	r_contC
+retardo_dloop
+	movlw	.100
+	movwf	r_contB
+retardo_dloop2
+	movlw	.249
+	movwf	r_contA
+retardo_dloop3
+	nop
+	decfsz	r_contA,1
+	goto	retardo_dloop3
+	decfsz	r_contB,1
+	goto	retardo_dloop2
+	decfsz	r_contC,1
+	goto	retardo_dloop
+	return
+	

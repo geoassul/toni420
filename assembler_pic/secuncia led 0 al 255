@@ -1,0 +1,68 @@
+;SECUENCIA DE LEDS CON CONDICIONALES
+
+#include "p18f4550.inc"
+#include "config.inc"
+
+;access ram para variables
+
+	cblock
+		r_contA		;contadores de tiempo
+		r_contB
+		r_contC
+	endc
+	
+;vectores de programa
+
+	org		0x0000
+	goto	SETUP
+	org		0x0020
+	
+SETUP:
+	movlw	0x62
+	movwf	OSCCON
+	movlw	0x0f
+	movwf	ADCON1
+	clrf	TRISD	;PUERTO D COMO SALIDAS
+	bcf		TRISA,0
+	clrf	LATD
+	bcf		LATA,0
+	call	retardo_1s
+	
+LOOP:
+	incf	LATD
+	call	retardo_1s
+	call	compara
+	goto	LOOP
+	
+compara:
+	movlw	0xff
+	cpfseq	LATD
+	return
+	btg		LATA,0
+	return
+	
+;subrutina de retardo
+
+retardo_1s
+	movlw	.10
+	goto	retardo_decima
+retardo_decima:
+	movwf	r_contC
+retardo_dLOOP:
+	movlw	.100
+	movwf	r_contB
+retardo_dLOOP2:
+	movlw	.249
+	movwf	r_contA
+	
+retardo_dLOOP:
+	nop
+	decfsz	r_contA,f
+	goto	retardo_dLOOP3
+	decfsz	r_contB,f
+	goto	retardo_dLOOP2
+	decfsz	r_contC,f
+	goto	retardo_dLOOP
+	return
+	end
+	

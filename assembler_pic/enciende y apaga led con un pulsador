@@ -1,0 +1,30 @@
+;apagar y encender LED con un pulsador
+
+#include "p18f4550.inc"
+#include "config.inc"
+
+	org 	0x0000
+	goto	SETUP
+	org		0x0020
+	
+SETUP:
+	movlw	0x62
+	movwf	OSCCON
+	movlw	0x0f
+	movwf	ADCON1
+	bsf 	TRISB,0
+	bcf		TRISD,0
+	bcf		LATD,0
+	
+LOOP:
+
+	btfss	PORTB,0
+	call	cambio
+	bsf		PORTB,0
+	goto	LOOP
+	
+cambio:
+	bcf		PORTB,0
+	goto	LOOP
+	
+	end
