@@ -1,0 +1,22 @@
+<meta charset='UTF-8'>
+<script>
+	var mi_edad = 28;
+	var hermano_edad = 26;
+	
+	function saltar_linea(x){
+		document.write('<br>'.repeat(x));
+		//document.write('fuiste separado');
+	    return;
+	}
+	function imprimir(mensaje){
+		document.write(mensaje);
+		saltar_linea(2);
+		return;
+	}
+	
+	document.write('hola mundo');
+	saltar_linea(2);
+	imprimir('la diferencia de edad es = ' + (mi_edad - hermano_edad))
+	document.write('separame por favor');
+	
+</script>

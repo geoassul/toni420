@@ -1,0 +1,19 @@
+<canvas width="600" height="400"></canvas>
+
+<script>
+    var pantalla = document.querySelector('canvas');
+    var pincel = pantalla.getContext('2d');
+    
+    pincel.fillStyle = "grey";
+    pincel.fillRect(0,0,500,400);
+    
+    function exibirAlerta(event){
+        console.log(event);
+        console.log(p);
+        alert('ud hizo click');
+    }
+    
+    pantalla.onclick = exibirAlerta; //automáticamente la funcion onclick devuelve el parametro que necesita la funcion exibirAlerta
+    
+
+</script>

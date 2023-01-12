@@ -1,0 +1,25 @@
+<meta charset="UTF-8">
+
+<input/>
+<button>verificar el secreto</button>
+
+<script>
+    var secreto = [2,3,7,8];
+    var input = document.querySelector('input');
+    var contador = 0;
+	function verificar(){
+		for (;contador <= 4; contador++){
+			if (input.value == secreto[contador]){
+				alert('bien');
+			}else{
+				alert('mal');
+			}
+			if (contador == 4){
+				alert('terminaste');
+			}
+		}
+	}
+		
+	boton = document.querySelector('button');
+	boton.onclick = verificar;	
+</script>

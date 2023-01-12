@@ -1,0 +1,52 @@
+<canvas width="600" height="400"> </canvas>
+
+<script>
+    var pantalla = document.querySelector("canvas");
+    var pincel = pantalla.getContext("2d");    
+    
+    pincel.fillStyle = "grey";
+    pincel.fillRect(0,0,600,400); 
+   
+   function disenarCircinferencia(x,y,radio){
+    pincel.fillStyle = 'blue';
+    pincel.beginPath(); // indica que se va a utilizar el pincel
+    pincel.arc(x,y,radio,0,2 * Math.PI); //dibuja un circulo en el canvas
+    pincel.fill(); //pinta el objeto dibujado
+   }
+
+    function limpiarPantalla(){
+        pincel.clearRect(0,0,600,400); //limpia la pantalla
+    }
+    
+    var x = 0;
+    var meta = false
+    
+    function actualizarPantalla(){
+        limpiarPantalla();
+        if(meta==false){
+            disenarCircinferencia(x,20,10);
+            x++;
+            if(x==600){
+                meta = true;
+            }
+        }
+        
+        if(meta == true){
+            disenarCircinferencia(x,20,10);
+            x--;
+            if(x==0){
+                meta = false;
+            }
+        }
+            
+    }
+    
+    setInterval(actualizarPantalla,10); // delay de 100 milisegundos
+    
+    //DATO: en setInterval sucede lo mismo que la funcion especial onclick.
+    //cuando hacemos la invocación del parametro sin usar el parentesis, la funcion
+    // se activara cuando se invoque en el canvas, pero si colocamos 
+    //la funcion parametro con parentesís sucedera que se activara la función
+    // y no esperará a que se invoque la funcion dentro del canvas.
+    
+</script> 

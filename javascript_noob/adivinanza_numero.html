@@ -1,0 +1,20 @@
+<meta charset="UTF-8">
+
+<input/>
+<button>verificar el secreto</button>
+
+<script>
+    var secreto = Math.round(Math.random * 10)
+    var input = document.querySelector('input');
+    function verificar(){
+        if (parseInt(input.value) == secreto){
+            alert('ud acerto');
+        } else {
+            alert('ud erró');
+        }
+        input.value = '';
+        input.focus();
+    }
+    var boton = document.querySelector('button');
+    boton.onclick = verificar;
+</script>

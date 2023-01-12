@@ -1,0 +1,47 @@
+<canvas width="600" height="400"></canvas>
+
+<script>
+
+    var serie2009 = [6, 47, 41, 3, 3];
+    var serie2019 = [81, 9, 3, 3, 4];
+    var colores = ["blue","green","yellow", "red","gray"];
+    
+    function dibujarRectangulo(x, y, base, altura, color) {
+        var pantalla = document.querySelector("canvas");
+        var pincel = pantalla.getContext("2d");
+
+        pincel.fillStyle=color;
+        pincel.fillRect(x,y, base, altura);
+        pincel.strokeStyle="black";
+        pincel.strokeRect(x,y, base, altura);
+    }
+
+    function escribirTexto(x , y, texto) {
+        var pantalla = document.querySelector("canvas");
+        var pincel = pantalla.getContext("2d");
+
+        pincel.font="15px Georgia";
+        pincel.fillStyle="black";
+        pincel.fillText(texto, x, y);    
+    }
+    function dibujarBarra(x,y,serie,setColor,epoca){
+	if (epoca == "2009"){
+	    escribirTexto(x,(y-10),epoca);
+	} else if (epoca == "2019"){
+	    escribirTexto(x,(y-10),epoca);
+	}
+	//var contador = 0
+	for(contador = 0;contador < colores.length; contador++){
+	    //alert(colores.length +'serie: '+ serie[contador]);
+	    //alert('paso'+contador+'valorY'+(y + serie[contador]));
+	    dibujarRectangulo(x,y,80,serie[contador],colores[contador]);
+	    //alert(y+ ' ' + contador);
+	    y = y + serie[contador];
+	}
+    }
+    //dibujarRectangulo(50,50,100,50,'green');
+    //escribirTexto(50,40,'hola mundo');
+
+    dibujarBarra(50, 50, serie2009, colores, "2009");
+    dibujarBarra(150, 50, serie2019, colores, "2019");
+</script>

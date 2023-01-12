@@ -1,0 +1,30 @@
+<meta charset = 'UTF-8'>
+<canvas width= "600" height= "400">
+
+<script>
+	var pantalla = document.querySelector("canvas");
+	var pincel = pantalla.getContext("2d");
+	
+	pincel.fillStyle = "lightgrey";
+	pincel.fillRect(0,0,200,400);
+	
+	pincel.fillStyle = "green";
+	pincel.fillRect(2000,0,200,400);
+	
+	pincel.fillStyle = "red";
+	pincel.fillRect(400,0,200,400);
+	
+	pincel.fillStyle = "orange";
+	pincel.beginPath();
+	pincel.moveTo(300,200);
+	pincel.lineTo(200,400);
+	pincel.lineTo(400,400);
+	pincel.fill();
+	
+	pincel.fillStyle = "red";
+	pincel.beginPath();
+	pincel.arc(300,200,50,0,2*3.1416);
+	pincel.fill();
+</script>
+</canvas>
+

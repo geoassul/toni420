@@ -1,0 +1,17 @@
+<meta charset = 'UTF-8'>
+<script>
+	function salto(){
+		document.write('<br>'.repeat(1));
+		return;
+	}
+	let puntaje;
+	let victorias;
+	let empates;
+	victorias  = parseInt(prompt('ingrese cantidad de victorias: '));
+	empates = parseInt(prompt('ingrese cantidad de empates: '));
+	document.write('victorias y empates, respectivamente: '+ victorias+'v' +' '+ empates+'e');
+	salto();
+	puntaje = ((victorias * 3) + (empates * 1));
+	document.write('tu puntaje es: ' + puntaje);
+	
+</script>

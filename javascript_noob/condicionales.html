@@ -1,0 +1,26 @@
+<meta charset = 'UTF-8'>
+<script>
+	function salto(){
+		document.write('<br>'.repeat(1));
+		return;
+	}
+	let pasado = 20;
+	let puntaje;
+	let victorias;
+	let empates;
+	victorias  = parseInt(prompt('ingrese cantidad de victorias: '));
+	empates = parseInt(prompt('ingrese cantidad de empates: '));
+	document.write('victorias y empates, respectivamente: '+ victorias+'v' +' '+ empates+'e');
+	salto();
+	puntaje = ((victorias * 3) + (empates * 1));
+	document.write('tu puntaje es: ' + puntaje);
+	salto();
+	if (puntaje == pasado){
+		alert('tu puntaje no ha mejorado');
+	} else if (puntaje < pasado){
+		alert('tu puntaje esta peor que el año pasado');
+	} else{
+		alert('felicidades, este año has mejorado');
+	}
+	
+</script>

@@ -1,0 +1,16 @@
+<meta charset="UTF-8">
+
+<input/>
+<button>Imprime tu texto</button>
+
+<script>
+    var texto = document.querySelector('input');
+    function imprimir(){
+        alert(texto.value);
+        texto.value = '';
+        texto.focus();
+    }
+    var boton = document.querySelector('button');
+    boton.onclick = imprimir;
+    
+</script>

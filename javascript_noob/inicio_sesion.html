@@ -1,0 +1,23 @@
+<meta charset="UTF-8">
+<script>
+    
+    var intentos = 1;
+    var inicioDeSesionRegistrado = "alura";
+    var contrasenhaRegistrada = "alura321";
+    
+    while(intentos <= 3){
+        var inicioDeSesionIngresado = prompt("Ingrese su usuario");
+        var contrasenhaIngresada = prompt("Ingrese su contraseña");
+        if( inicioDeSesionRegistrado == inicioDeSesionIngresado && contrasenhaRegistrada == contrasenhaIngresada ) {
+            alert("Bienvenido al sistema " + inicioDeSesionIngresado)
+            document.write('bienvenido, hijo de la gran fruta');
+            break;
+        } else {
+            alert("inicio de sesión inválido. Favor intente de nuevo");
+        }
+        intentos ++
+        if (intentos == 3){
+            document.write('sus intentos se han acabado');
+        }
+    }
+</script>
