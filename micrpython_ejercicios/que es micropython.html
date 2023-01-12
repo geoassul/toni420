@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<!-- saved from url=(0059)https://docs.micropython.org/en/latest/reference/index.html -->
+<html class=" js flexbox canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths" lang="en" style=""><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>MicroPython language and implementation — MicroPython 1.14 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="https://docs.micropython.org/en/latest/_static/favicon.ico">
+  
+  
+  
+
+  
+  <script type="text/javascript" src="./que es micropython_files/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="./que es micropython_files/documentation_options.js"></script>
+        <script src="./que es micropython_files/jquery.js"></script>
+        <script src="./que es micropython_files/underscore.js"></script>
+        <script src="./que es micropython_files/doctools.js"></script>
+        <script src="./que es micropython_files/language_data.js"></script>
+    
+    <script type="text/javascript" src="./que es micropython_files/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="./que es micropython_files/theme.css" type="text/css">
+  <link rel="stylesheet" href="./que es micropython_files/pygments.css" type="text/css">
+  <link rel="stylesheet" href="./que es micropython_files/customstyle.css" type="text/css">
+    <link rel="index" title="Index" href="https://docs.micropython.org/en/latest/genindex.html">
+    <link rel="search" title="Search" href="https://docs.micropython.org/en/latest/search.html">
+    <link rel="next" title="Glossary" href="https://docs.micropython.org/en/latest/reference/glossary.html">
+    <link rel="prev" title="esp32 — functionality specific to the ESP32" href="https://docs.micropython.org/en/latest/library/esp32.html"> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="https://docs.micropython.org/en/latest/index.html" class="icon icon-home"> MicroPython
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.14
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="https://docs.micropython.org/en/latest/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs">
+    <input type="hidden" name="check_keywords" value="yes">
+    <input type="hidden" name="area" value="default">
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="https://docs.micropython.org/en/latest/library/index.html">MicroPython libraries</a></li>
+<li class="toctree-l1 current"><a class="reference internal current" href="https://docs.micropython.org/en/latest/reference/index.html#"><span class="toctree-expand"></span>MicroPython language and implementation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.micropython.org/en/latest/reference/glossary.html">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.micropython.org/en/latest/reference/repl.html">The MicroPython Interactive Interpreter Mode (aka REPL)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.micropython.org/en/latest/reference/mpyfiles.html">MicroPython .mpy files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.micropython.org/en/latest/reference/isr_rules.html">Writing interrupt handlers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.micropython.org/en/latest/reference/speed_python.html">Maximising MicroPython speed</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.micropython.org/en/latest/reference/constrained.html">MicroPython on microcontrollers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.micropython.org/en/latest/reference/packages.html">Distribution packages, package management, and deploying applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.micropython.org/en/latest/reference/asm_thumb2_index.html">Inline assembler for Thumb2 architectures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.micropython.org/en/latest/reference/filesystem.html">Working with filesystems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.micropython.org/en/latest/reference/pyboard.py.html">The pyboard.py tool</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="https://docs.micropython.org/en/latest/genrst/index.html">MicroPython differences from CPython</a></li>
+<li class="toctree-l1"><a class="reference internal" href="https://docs.micropython.org/en/latest/develop/index.html">MicroPython Internals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="https://docs.micropython.org/en/latest/license.html">MicroPython license information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="https://docs.micropython.org/en/latest/pyboard/quickref.html">Quick reference for the pyboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="https://docs.micropython.org/en/latest/esp8266/quickref.html">Quick reference for the ESP8266</a></li>
+<li class="toctree-l1"><a class="reference internal" href="https://docs.micropython.org/en/latest/esp32/quickref.html">Quick reference for the ESP32</a></li>
+<li class="toctree-l1"><a class="reference internal" href="https://docs.micropython.org/en/latest/wipy/quickref.html">Quick reference for the WiPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="https://docs.micropython.org/en/latest/unix/quickref.html">Quick reference for the UNIX and Windows ports</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="https://docs.micropython.org/en/latest/index.html">MicroPython</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="https://docs.micropython.org/en/latest/index.html">Docs</a> »</li>
+        
+      <li>MicroPython language and implementation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="https://docs.micropython.org/en/latest/_sources/reference/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="micropython-language-and-implementation">
+<h1>MicroPython language and implementation<a class="headerlink" href="https://docs.micropython.org/en/latest/reference/index.html#micropython-language-and-implementation" title="Permalink to this headline">¶</a></h1>
+<p>MicroPython aims to implement the Python 3.4 standard (with selected
+features from later versions) with respect to language syntax, and most
+of the features of MicroPython are identical to those described by the
+“Language Reference” documentation at
+<a class="reference external" href="https://docs.python.org/3/reference/index.html">docs.python.org</a>.</p>
+<p>The MicroPython standard library is described in the
+<a class="reference internal" href="https://docs.micropython.org/en/latest/library/index.html#micropython-lib"><span class="std std-ref">corresponding chapter</span></a>. The <a class="reference internal" href="https://docs.micropython.org/en/latest/genrst/index.html#cpython-diffs"><span class="std std-ref">MicroPython differences from CPython</span></a>
+chapter describes differences between MicroPython and CPython (which
+mostly concern standard library and types, but also some language-level
+features).</p>
+<p>This chapter describes features and peculiarities of MicroPython
+implementation and the best practices to use them.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="https://docs.micropython.org/en/latest/reference/glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="https://docs.micropython.org/en/latest/reference/repl.html">The MicroPython Interactive Interpreter Mode (aka REPL)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="https://docs.micropython.org/en/latest/reference/mpyfiles.html">MicroPython .mpy files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="https://docs.micropython.org/en/latest/reference/isr_rules.html">Writing interrupt handlers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="https://docs.micropython.org/en/latest/reference/speed_python.html">Maximising MicroPython speed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="https://docs.micropython.org/en/latest/reference/constrained.html">MicroPython on microcontrollers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="https://docs.micropython.org/en/latest/reference/packages.html">Distribution packages, package management, and deploying applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="https://docs.micropython.org/en/latest/reference/asm_thumb2_index.html">Inline assembler for Thumb2 architectures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="https://docs.micropython.org/en/latest/reference/filesystem.html">Working with filesystems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="https://docs.micropython.org/en/latest/reference/pyboard.py.html">The pyboard.py tool</a></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="https://docs.micropython.org/en/latest/reference/glossary.html" class="btn btn-neutral float-right" title="Glossary" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="https://docs.micropython.org/en/latest/library/esp32.html" class="btn btn-neutral float-left" title="esp32 — functionality specific to the ESP32" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr>
+
+  <div role="contentinfo">
+    <p>
+        © Copyright 2014-2021, Damien P. George, Paul Sokolovsky, and contributors
+      <span class="lastupdated">
+        Last updated on 05 Apr 2021.
+      </span>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    <span class="fa fa-book"> Versions and Downloads</span>
+    latest
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    <dl>
+      <dt>Versions</dt>
+      
+        <dd><a href="http://docs.micropython.org/en/v1.4.4">v1.4.4</a></dd>
+      
+        <dd><a href="http://docs.micropython.org/en/v1.4.5">v1.4.5</a></dd>
+      
+        <dd><a href="http://docs.micropython.org/en/v1.4.6">v1.4.6</a></dd>
+      
+        <dd><a href="http://docs.micropython.org/en/v1.5">v1.5</a></dd>
+      
+        <dd><a href="http://docs.micropython.org/en/v1.5.1">v1.5.1</a></dd>
+      
+        <dd><a href="http://docs.micropython.org/en/v1.5.2">v1.5.2</a></dd>
+      
+        <dd><a href="http://docs.micropython.org/en/v1.6">v1.6</a></dd>
+      
+        <dd><a href="http://docs.micropython.org/en/v1.7">v1.7</a></dd>
+      
+        <dd><a href="http://docs.micropython.org/en/v1.8">v1.8</a></dd>
+      
+        <dd><a href="http://docs.micropython.org/en/v1.8.1">v1.8.1</a></dd>
+      
+        <dd><a href="http://docs.micropython.org/en/v1.8.2">v1.8.2</a></dd>
+      
+        <dd><a href="http://docs.micropython.org/en/v1.8.3">v1.8.3</a></dd>
+      
+        <dd><a href="http://docs.micropython.org/en/v1.8.4">v1.8.4</a></dd>
+      
+        <dd><a href="http://docs.micropython.org/en/v1.8.5">v1.8.5</a></dd>
+      
+        <dd><a href="http://docs.micropython.org/en/v1.8.6">v1.8.6</a></dd>
+      
+        <dd><a href="http://docs.micropython.org/en/v1.8.7">v1.8.7</a></dd>
+      
+        <dd><a href="http://docs.micropython.org/en/v1.9">v1.9</a></dd>
+      
+        <dd><a href="http://docs.micropython.org/en/v1.9.1">v1.9.1</a></dd>
+      
+        <dd><a href="http://docs.micropython.org/en/v1.9.2">v1.9.2</a></dd>
+      
+        <dd><a href="http://docs.micropython.org/en/v1.9.3">v1.9.3</a></dd>
+      
+        <dd><a href="http://docs.micropython.org/en/v1.9.4">v1.9.4</a></dd>
+      
+        <dd><a href="http://docs.micropython.org/en/v1.10">v1.10</a></dd>
+      
+        <dd><a href="http://docs.micropython.org/en/v1.11">v1.11</a></dd>
+      
+        <dd><a href="http://docs.micropython.org/en/v1.12">v1.12</a></dd>
+      
+        <dd><a href="http://docs.micropython.org/en/v1.13">v1.13</a></dd>
+      
+        <dd><a href="http://docs.micropython.org/en/v1.14">v1.14</a></dd>
+      
+        <dd><a href="http://docs.micropython.org/en/latest">latest</a></dd>
+      
+    </dl>
+    <dl>
+      <dt>Downloads</dt>
+      
+        <dd><a href="http://docs.micropython.org/en/latest/micropython-docs.pdf">PDF</a></dd>
+      
+    </dl>
+    <hr>
+    <dl>
+      <dt>External links</dt>
+        <dd>
+          <a href="https://www.micropython.org/">micropython.org</a>
+        </dd>
+        <dd>
+          <a href="https://github.com/micropython/micropython">GitHub</a>
+        </dd>
+    </dl>
+  </div>
+</div>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+
+</body></html>
