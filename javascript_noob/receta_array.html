@@ -17,6 +17,12 @@
                 repetido = true;
                 break;
             }
+            //jugando con la indexacion
+            if(ingrediente == 'q'){
+            alert('terminamos');
+            ingredientes[5] = "probando";
+            break
+        }
             console.log(repetido);
         }
         
@@ -24,6 +30,7 @@
             ingredientes.push(ingrediente);
             contador++;
         }
+        //dato = prompt('ingrese una tecla');
     }
 
     console.log(ingredientes);
