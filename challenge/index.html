@@ -15,28 +15,31 @@
     <body>
 
         <header>
-            <img class="logo1" src="imagenes/Logo.png">
+            <img class="logo1" src="imagenes/Logo.png" alt="logo alura">
         </header>
 
         <main>
             
             <section class="textarea_encriptador">
-                <textarea class="text-area" placeholder="ingrese su texto al encriptador"></textarea>
-                <div class="atencion_mensaje">
-                    <img class="atencion" src="imagenes/Vector.png">
+                <textarea class="textarea" placeholder="ingrese su texto al encriptador"></textarea>
+                <div class="advertencia_textarea">
                     <h6>solo letras minusculas y sin acento</h2>
+                </div>
+                <div class="botones">
+                    <button class="btn-encriptar">encriptar</button>
+                    <button class="btn-desencriptar">desencriptar</button>
                 </div>
             </section>
 
-            <section class="botones">
-                <h4 class="titulo-principal">botones de encriptado y desencriptado</h3>
-                <button class="btn-encriptar">encriptar</button>
-                <button class="btn-desencriptar">desencriptar</button>
-            </section>
-
-            <section class="resultado_encriptador">
-                <h3 class="titulo-principal">resultado</h3>
-                <textarea class="mensaje-resultado" placeholder="texto resultado"> </textarea>
+            <section class="result">
+                <textarea class="mensaje" placeholder="texto resultado"> </textarea>
+                <div class="img_result">
+                    <img class="Muñeco" src="imagenes/Muñeco.png" alt="imagen de espera">
+                </div>
+                <div class="advertencia_result">
+                    <p class="advertencia1"> <strong>no se encontro ningun mensaje</strong> </p>
+                    <p class="advertencia2"> ingrese el texto para encriptar o desencriptar</p>
+                </div>
                 <div>
                     <button class="btn-copiar">copiar</button>
                 </div>
@@ -44,7 +47,8 @@
 
         </main>
 
-        <footer>
+        <footer> 
+            <p>Challenge Encriptador By: Anthony Ascue</p>
         </footer>
 
     </body>
