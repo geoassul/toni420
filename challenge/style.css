@@ -122,6 +122,14 @@ main section{
 .btn-copiar{
 	display:block;
 	margin: 10px auto;
+	width: 30%;
+	height: 40px;
+	padding: 0 20px 0 20px;
+	border-radius: 20px;
+	border: 0;
+	outline: 0;
+	cursor: pointer;
+	
 }
 
 footer{
