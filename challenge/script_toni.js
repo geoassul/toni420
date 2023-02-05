@@ -5,7 +5,6 @@ function btnEncriptar() {
 	texto = textArea.value;
 	textoEncrip = encriptador(texto);
 	mensaje.value = textoEncrip;
-	//alert(texto);
 }
 
 
@@ -18,7 +17,7 @@ function encriptador(texto) {
 	let index = 0;
 	
 	for(let char of txt){
-		
+		alert(index);
 		//alert("entro " + txt.length +" "+ char );
 		
 		for (let vocal of vocales){
@@ -31,18 +30,22 @@ function encriptador(texto) {
 			}
 			//alert("contador: " + contador);
 		contador = 0;	
-		index++
-		if (index == txt.length){
-			break;
-			}
+		index++;
 			
 		//alert("index: " + index);		
 		}
 		
 	let resultado = lista.toString()
 	a = resultado.replaceAll(",","");
-	alert(a);
+	//alert(a);
 	
 	return a;
 	
 }
+
+function desencriptar(texto){
+	let txt = texto;
+	let vocales = ["a","e","i","o","u"];
+	let criptos = ["ene","aimas","ai","ober","utaf"];
+	
+	}
