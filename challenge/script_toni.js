@@ -17,35 +17,56 @@ function encriptador(texto) {
 	let index = 0;
 	
 	for(let char of txt){
-		alert(index);
-		//alert("entro " + txt.length +" "+ char );
-		
+
 		for (let vocal of vocales){
-			//alert("entro" + vocal);
 			if (vocal == char){
 				lista[index] = criptos[contador];
-				//alert("entro"+lista[index]);
 				}
 			contador++;
 			}
-			//alert("contador: " + contador);
 		contador = 0;	
 		index++;
-			
-		//alert("index: " + index);		
+				
 		}
 		
 	let resultado = lista.toString()
 	a = resultado.replaceAll(",","");
-	//alert(a);
 	
 	return a;
 	
 }
 
+function btnDesencriptar(){
+    const textoEncriptado = desencriptar(textArea.value)
+    mensaje.value = textoEncriptado
+    textArea.value = "";
+    
+}
+
+
 function desencriptar(texto){
 	let txt = texto;
 	let vocales = ["a","e","i","o","u"];
 	let criptos = ["ene","aimas","ai","ober","utaf"];
+	let contador = 0;
+	let index = 0;
 	
-	}
+
+	for (let palabra of criptos){
+		if (txt.includes(palabra)){
+			txt = txt.replaceAll(palabra,vocales[contador])
+			}
+		contador++;
+		}
+		
+	contador = 0;
+	alert(txt);
+	return txt;
+}
+
+function copiar(){
+    mensaje.select();
+    navigator.clipboard.writeText(mensaje.value)
+    mensaje.value = "";
+    alert("Texto Copiado")
+}
