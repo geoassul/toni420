@@ -1,10 +1,13 @@
 const textArea = document.querySelector(".textarea");
 const mensaje = document.querySelector(".mensaje");
+const mensaje_area = document.querySelector(".advertencia_result");
+const imagen_result = document.querySelector(".Muñeco");
 
 function btnEncriptar() {
 	texto = textArea.value;
 	textoEncrip = encriptador(texto);
 	mensaje.value = textoEncrip;
+	consulta();
 }
 
 
@@ -29,7 +32,7 @@ function encriptador(texto) {
 				
 		}
 		
-	let resultado = lista.toString()
+	let resultado = lista.toString();
 	a = resultado.replaceAll(",","");
 	
 	return a;
@@ -37,10 +40,10 @@ function encriptador(texto) {
 }
 
 function btnDesencriptar(){
-    const textoEncriptado = desencriptar(textArea.value)
-    mensaje.value = textoEncriptado
+    const textoEncriptado = desencriptar(textArea.value);
+    mensaje.value = textoEncriptado;
     textArea.value = "";
-    
+    consulta();
 }
 
 
@@ -54,19 +57,33 @@ function desencriptar(texto){
 
 	for (let palabra of criptos){
 		if (txt.includes(palabra)){
-			txt = txt.replaceAll(palabra,vocales[contador])
+			txt = txt.replaceAll(palabra,vocales[contador]);
 			}
 		contador++;
 		}
-		
+
 	contador = 0;
-	alert(txt);
 	return txt;
 }
 
 function copiar(){
     mensaje.select();
-    navigator.clipboard.writeText(mensaje.value)
+    navigator.clipboard.writeText(mensaje.value);
     mensaje.value = "";
-    alert("Texto Copiado")
+	textArea.value = "";
+    consulta();
+    alert("Texto Copiado");
 }
+
+function consulta(){
+	
+	if (mensaje.value.length > 0){
+		mensaje_area.style.display = "none";
+		mensaje.style.background = "#E5E5E5";
+		}
+	else{
+		mensaje_area.style.display = "block";
+		mensaje.style.background = "url(imagenes/Muñeco.png) center center no-repeat"
+		}
+		
+	}

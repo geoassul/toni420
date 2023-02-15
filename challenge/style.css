@@ -76,6 +76,10 @@ main section{
 	background: red;
 }
 
+.btn-desencriptar{
+	background: white;
+}
+
 .btn-desencriptar:hover {
 	background: yellow;
 }
@@ -88,22 +92,26 @@ main section{
 	border-radius: 20px;
 }
 
+
 .mensaje{
 	width : 80%;
-	height: 15%;
+	height: 65%;
 	display: block;
 	margin: 20px auto 0 auto;
 	border: 0;
 	outline: 0;
+	padding-top: 10px;
 	text-align: center;
 	border-radius:20px;
 	resize: none;
-	background: white;
+	background: url(imagenes/Muñeco.png) center center no-repeat;
 }
 
 .mensaje::placeholder{
-		padding: 10px 0;
+	padding: 10px 0;
 }
+
+
 
 .img_result{
 	height: 60%;
@@ -116,6 +124,7 @@ main section{
 
 .advertencia_result{
 	text-align: center;
+	display: block;
 }
 
 .advertencia2{
