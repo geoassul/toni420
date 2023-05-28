@@ -1,0 +1,34 @@
+
+* en el mapeamiento se tiene que definir el html para la pagina web dentro de la clase
+	usando el metodo getWriter(), que se obitene de un objeto llamado PrintWriter.
+	para mandar a la pagina el html se utiliz a el objeto denominado con el metodo
+	
+	> objetoPrintWriter.println("<html></html>");
+
+*Hola alura, parte 4: Primer proyecto JSP.
+::::::::::::::::::::::::::::::::::::::::
+
+*JSP es una forma especial de combinar codigo java con html, para 
+ usar jps debemos crear un archivo de tipo ".jsp".
+ ubicamos el codigo java dentro de "<%", "%>" estos simbolo de 
+ abrir y cerrar.
+ dentro del jsp tambien podemos crear un archivo html con su 
+ sintaxis conocida. 
+ para enviar los datos del JSP al html tenemos que usar un objeto
+ PrintWriter o tambien conocido como objeto "out", sino tambien
+ podemos usar la siguiente forma: "<%=" "%>".
+ 
+*Request(Dispatcher) se encagará de manipular parametros mientras que response se encarga
+  de mostrar lo que el cliente pida(Writer).
+  
+*¿Qué es un Dispatcher?
+	es un objeto que se encarga de comunicar el JSP con Servlet
+	es un metodo Request:
+
+	> RequestDispatcher rd = request.getRequestDispatcher("/MiProyectoJSP.jsp")
+	> rd.forward(request,response);
+
+* JSP-contexto 
+  el nombre del proyecto es el contexto, en jsp se necesita referenciar el path desde el contexto
+  para ciertos métodos. ejemplo: "/miProyecto(contexto)/servlet". el contexto puede cambiar, por lo que no
+  es buena idea tener hardcodeado dentro de JSP, sino tenerlo automatizado con JSTL(core)

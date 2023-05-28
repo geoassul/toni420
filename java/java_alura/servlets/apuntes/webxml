@@ -1,0 +1,4 @@
+Sobre web.XML
+
+En este archivo ubicado dentro del webbapp/WEB-INF, se ubica el mapeamiento de las clases
+que serán servlets. 

@@ -1,0 +1,5 @@
+404 : pagina no encontrada. - "recurso no encontrado"
+405 : método incorrecto. "metodo HTTP no permitido"
+500 : "Error interno del servidor"
+200 : request se ejecuto con éxito. ¡es un mensaje de éxito! (status code)
+302 : redireccionamiento (status code)

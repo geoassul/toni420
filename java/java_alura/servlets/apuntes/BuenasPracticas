@@ -1,0 +1,5 @@
+*no es buena idea tener mucho html dentro del codigo servlet, y a las ves
+tampoco es buena practica tener mucho codigo java dentro del jsp.
+
+
+

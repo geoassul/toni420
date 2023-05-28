@@ -1,0 +1,25 @@
+/* hola Alura parte 3
+Metodos POST y GET
+_____
+-en opciones de desarrollador -> Network -> podemos ver que ocurre
+ en el servlet(get, post, envio y recepcion de datos
+ entre servidor y navegador).
+
+ para usar POST para ocultar datos relevantes del usuario:
+  dentro de webapp, creamos un html 
+  dentro del body:
+	<form action = "/miproyecto/nuevaPAGWEB" method="post"> 
+		Nombre empresa : <input type="text" name="nombre"/> //en name ubicamos el parametro
+		<input type="submit"/>
+	</form>
+  
+  *en "action" definimos a donde sera redirigido el formulario(en este caso será
+   la ubicacion del servlet.
+  *en el primer input definimos el tipo de dato html y el parametro que usará el servlet.
+  *el segundo input crea un boton que envia el valor del parametro
+  *en method escogemos entre post(enviar datos) y get(obtener datos).
+
+ .. El resultado de esto es no exponer datos relevantes, sensibles,etc. en la url.
+ 
+ *<form action="/eccm/login"> //esto quiere decir que hay un servlet con mapeamiento login.
+*/

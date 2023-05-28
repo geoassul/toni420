@@ -1,0 +1,30 @@
+
+
+*Al JSP tambien se le conoce por elaborar paginas WEB DINAMICAS.
+
+*JSP es una forma especial de combinar codigo java con html, para 
+ usar jps debemos crear un archivo de tipo ".jsp".
+ ubicamos el codigo java dentro de "<%", "%>" estos simbolo de 
+ abrir y cerrar.
+ dentro del jsp tambien podemos crear un archivo html con su 
+ sintaxis conocida. 
+ para enviar los datos del JSP al html tenemos que usar un objeto
+ PrintWriter o tambien conocido como objeto "out", sino tambien
+ podemos usar la siguiente forma: "<%=" "%>".
+
+*Comunicacion: Servlet y JSP necesitan comunicarse
+
+//llamar al jsp
+	RequestDispatcher rd = request.getRequestDispatcher("MiServlet/proyecto/pagweb.
+
+*¿Qué es un Dispatcher?
+ es un objeto que se encarga de comunicar el JSP con Servlet
+ es un metodo Request:
+
+   > RequestDispatcher rd = request.getRequestDispatcher("/MiProyectoJSP.jsp")
+   > rd.forward(request,response);
+
+
+
+
+
